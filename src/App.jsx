@@ -1,0 +1,25 @@
+import React, {lazy, Suspense} from 'react';
+import {Route, Routes} from "react-router";
+import Loader from "./component/Loader.jsx";
+
+const App = () => {
+    const Index = lazy(() => import('./MainLayout/Index'));
+    const Blog = lazy(() => import('./MainLayout/Blogs.jsx'));
+    return (
+        <div>
+            <Suspense fallback={<Loader/>}>
+                <Routes>
+                    <Route element={<Index/>}>
+                        <Route index element={<Blog/>}/>
+                        <Route path="/blog" element={<h1>Blog</h1>}/>
+                        <Route path="/about" element={<h1>About</h1>}/>
+                        <Route path="/links" element={<h1>Links</h1>}/>
+                        <Route path="/projects" element={<h1>Projects</h1>}/>
+                    </Route>
+                </Routes>
+            </Suspense>
+        </div>
+    );
+};
+
+export default App;

@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+    --font-primary: "Tinos", serif;
+    --font-secondary: "SFProDisplay", sans-serif;
+    --font-tertiary: "Poppins", sans-serif;
+}
+@theme {
+    --font-primary: "NewYork", sans-serif;
+    --font-secondary: "SFProDisplay", sans-serif;
+    --font-tertiary: "Poppins", sans-serif;
+}
+@layer base{
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    image{
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        max-width: 100%;
+        height: auto;
+    }
+}
+@layer components{
+    .heroHeading{
+        @apply text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 font-primary leading-snug;
+    }
+    .navLink{
+        position: relative;
+    }
+    .navLink::after{
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: currentColor;
+        transition: width 0.3s ease-in-out;
+    }
+    .navLink:hover::after{
+        width: 100%;
+    }
+    .activeLink{
+        position: relative;
+    }
+    .activeLink::after{
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: currentColor;
+    }
+}
+/* Fonts face*/
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../public/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../public/SFPRODISPLAYREGULAR.OTF') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url('../public/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
