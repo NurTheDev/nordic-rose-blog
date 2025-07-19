@@ -1,15 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root{
     --font-primary: "Tinos", serif;
-    --font-secondary: "SFProDisplay", sans-serif;
+    --font-secondary:  "JetBrains Mono", monospace;
     --font-tertiary: "Poppins", sans-serif;
 }
 @theme {
-    --font-primary: "NewYork", sans-serif;
-    --font-secondary: "SFProDisplay", sans-serif;
+    --font-primary: var(--font-primary);
+    --font-secondary: var(--font-secondary);
     --font-tertiary: "Poppins", sans-serif;
 }
 @layer base{
@@ -60,27 +60,4 @@
         height: 2px;
         background-color: currentColor;
     }
-}
-/* Fonts face*/
-
-@font-face {
-    font-family: 'SFProDisplay';
-    src: url('../public/SFPRODISPLAYMEDIUM.OTF') format('opentype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'SFProDisplay';
-    src: url('../public/SFPRODISPLAYREGULAR.OTF') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'SFProDisplay';
-    src: url('../public/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
 }
