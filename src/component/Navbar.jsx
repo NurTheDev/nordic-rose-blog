@@ -12,10 +12,10 @@ const navItems = [
 const Navbar = () => {
     return (
         <header className="w-full bg-white border-b border-gray-200 fixed top-0 left-0 z-30">
-            <nav className="max-w-6xl mx-auto flex items-center justify-between px-8 py-7">
+            <nav className="max-w-7xl mx-auto flex items-center justify-between px-8 py-7">
                 {/* Logo (text, not image, for style matching) */}
                 <NavLink to="/" className="select-none">
-                    <span className="font-serif text-4xl md:text-5xl tracking-[0.18em] text-black">
+                    <span className="font-serif text-3xl md:text-5xl tracking-[0.18em] text-black">
                         NORDIC ROSE
                     </span>
                 </NavLink>
@@ -24,7 +24,7 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center gap-8">
                     <ul className="flex gap-10">
                         {navItems.map((item) => (
-                            <li key={item.link} className="relative">
+                            <li key={item.link} className="relative flex items-center">
                                 <NavLink
                                     to={item.link}
                                     end={item.link === "/"}
