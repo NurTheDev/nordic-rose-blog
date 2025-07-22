@@ -51,7 +51,7 @@ export default function NewBlogEditor({onSave}) {
 
 
     return (
-        <div className="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+        <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow">
             {/* Blog Title */}
             <input
                 type="text"
