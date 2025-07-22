@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import {Link} from "react-router";
-
-export default function RegisterForm({ onRegister }) {
+import axios from "axios";
+import {AuthContext} from "../context/authContext.js";
+export default function RegisterForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-
-    const handleSubmit = e => {
+const [user, setUser] = useContext(AuthContext)
+    const handleSubmit = async e => {
         e.preventDefault();
         // Implement registration logic here
-        onRegister?.({ name, email, password });
+        const response = axios.post("http://localhost:3000/user/register", {email, password, name}).then(()=>{
+            localStorage.setItem("isAuthenticated", {isAuthenticated: true})
+            setUser({isAuthenticated: true})
+        })
     };
-
     return (
         <div className={"flex items-center justify-center min-h-screen"}>
             <div className="max-w-md w-full mx-auto my-12 p-8 border border-black bg-white">
