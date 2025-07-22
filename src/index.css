@@ -60,4 +60,7 @@
         height: 2px;
         background-color: currentColor;
     }
+    .ProseMirror:focus-visible{
+        outline: none;
+    }
 }

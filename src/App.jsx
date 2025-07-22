@@ -8,6 +8,7 @@ const App = () => {
     const SingleBlog = lazy(() => import('./MainLayout/SingleBlog.jsx'));
     const LoginForm = lazy(() => import('./AuthLayout/LoginForm.jsx'));
     const RegisterForm = lazy(() => import('./AuthLayout/RegisterForm.jsx'));
+    const NewBlogEditor = lazy(() => import('./MainLayout/blogComponent/NewBlogEditor.jsx'));
     return (
         <div>
             <Suspense fallback={<Loader/>}>
@@ -19,7 +20,8 @@ const App = () => {
                         <Route path="/blog" element={<h1>Blog</h1>}/>
                         <Route path="/about" element={<h1>About</h1>}/>
                         <Route path="/links" element={<SingleBlog/>}/>
-                        <Route path="/projects" element={<h1>Projects</h1>}/>
+                        <Route path="/projects" element={<NewBlogEditor/>}/>
+
                     </Route>
                 </Routes>
             </Suspense>
