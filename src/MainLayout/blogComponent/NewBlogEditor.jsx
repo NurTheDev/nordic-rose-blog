@@ -10,7 +10,7 @@ import useToolbar from "../../hooks/UseToolbar.jsx";
 import {FaImage, FaLink} from "react-icons/fa";
 
 
-export default function NewLinkedInStyleBlogEditor({onSave}) {
+export default function NewBlogEditor({onSave}) {
     const [title, setTitle] = useState("");
     const [thumbnail, setThumbnail] = useState(null);
 
@@ -18,10 +18,7 @@ export default function NewLinkedInStyleBlogEditor({onSave}) {
         extensions: [
             StarterKit,
             Image,
-            Link,
             Highlight,
-            Underline,
-            Strike,
         ],
         content: "<p>Write your blog content here...</p>",
     });
@@ -126,7 +123,7 @@ export default function NewLinkedInStyleBlogEditor({onSave}) {
             </div>
 
             {/* Editor Content */}
-            <div className="min-h-[200px] w-full p-4 border rounded bg-gray-50 mb-4">
+            <div className="min-h-[200px] w-full p-4 border rounded  mb-4">
                 <EditorContent editor={editor}/>
             </div>
 
