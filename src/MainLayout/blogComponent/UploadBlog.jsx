@@ -25,9 +25,13 @@ const UploadBlog = () => {
     console.log(blog)
     const handleUpload = ()=>{
         const formData = new FormData();
-        if(blog.thumbnail) formData.append("thumbnail", blog.thumbnail);
+        formData.append("title", blog.title);
         formData.append("content", blog.content);
-        formData.append("thumbnail", blog.thumbnail);
+        if(blog.thumbnail) formData.append("thumbnail", blog.thumbnail);
+        console.log("FormData contents:");
+        for (let [key, value] of formData.entries()) {
+            console.log(key, value);
+        }
     }
     return (
        <div className={"flex flex-col items-center"}>

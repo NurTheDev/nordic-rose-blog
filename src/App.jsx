@@ -11,7 +11,9 @@ const App = () => {
     const LoginForm = lazy(() => import('./AuthLayout/LoginForm.jsx'));
     const RegisterForm = lazy(() => import('./AuthLayout/RegisterForm.jsx'));
     const UploadBlog = lazy(() => import('./MainLayout/blogComponent/UploadBlog.jsx'));
-    const [user, setUser] = React.useState({isAuthenticated: false});
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
+    console.log(isAuthenticated)
+    const [user, setUser] = React.useState(isAuthenticated || false);
     return (
         <AuthContext value={[user, setUser]}>
             <div>

@@ -1,14 +1,24 @@
-import React, { useState } from "react";
-import {Link} from "react-router";
+import React, {useContext, useState} from "react";
+import {Link, useNavigate} from "react-router";
+import axios from "axios";
+import {AuthContext} from "../context/authContext.js";
 
-export default function LoginForm({ onLogin }) {
+export default function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    const handleSubmit = e => {
-        e.preventDefault();
+    const [_, setUser] = useContext(AuthContext)
+    const navigate = useNavigate()
+    const handleSubmit = (e) => {
         // Implement login logic here
-        onLogin?.({ email, password });
+        e.preventDefault();
+        axios.post("http://localhost:3000/user/login", {email, password}).then(() => {
+            localStorage.setItem("isAuthenticated", true)
+            setUser({isAuthenticated: true})
+        }).then(() => {
+            navigate("/")
+        }).catch((error) => {
+            console.error(error);
+        });
     };
 
     return (

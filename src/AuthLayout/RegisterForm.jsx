@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {Link} from "react-router";
+import {Link, useNavigate} from "react-router";
 import axios from "axios";
 import {AuthContext} from "../context/authContext.js";
 export default function RegisterForm() {
@@ -7,12 +7,16 @@ export default function RegisterForm() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
 const [user, setUser] = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleSubmit = async e => {
         e.preventDefault();
         // Implement registration logic here
         const response = axios.post("http://localhost:3000/user/register", {email, password, name}).then(()=>{
-            localStorage.setItem("isAuthenticated", {isAuthenticated: true})
+            localStorage.setItem("isAuthenticated", true)
             setUser({isAuthenticated: true})
+        }).then(()=>{
+            navigate("/")
+            console.log(user)
         })
     };
     return (
