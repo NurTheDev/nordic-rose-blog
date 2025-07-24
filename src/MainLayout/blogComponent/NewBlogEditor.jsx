@@ -6,7 +6,7 @@ import Highlight from "@tiptap/extension-highlight";
 import useToolbar from "../../hooks/UseToolbar.jsx";
 import { FaImage, FaLink } from "react-icons/fa";
 
-export default function NewBlogEditor({ onSave }) {
+export default function NewBlogEditor({ onPreview }) {
     const [title, setTitle] = useState("");
     const [thumbnail, setThumbnail] = useState(null);
     const editor = useEditor({
@@ -31,10 +31,10 @@ export default function NewBlogEditor({ onSave }) {
         const file = e.target.files[0];
         if (file) setThumbnail(file);
     };
-    const handleSave = () => {
+    const handlePreview = () => {
         const htmlContent = editor?.getHTML() || "";
-        if (onSave) {
-            onSave({ title, content: htmlContent, thumbnail });
+        if (onPreview) {
+            onPreview({ title, content: htmlContent, thumbnail });
         }
     };
 
@@ -119,7 +119,7 @@ export default function NewBlogEditor({ onSave }) {
 
             {/* Save Button */}
             <button
-                onClick={handleSave}
+                onClick={handlePreview}
                 className="bg-indigo-600 text-white py-2 px-8 rounded-lg hover:bg-indigo-700 transition font-semibold text-lg w-full"
             >
                 Show Preview

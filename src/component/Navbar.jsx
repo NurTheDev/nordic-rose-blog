@@ -5,20 +5,21 @@ import {AuthContext} from "../context/authContext.js";
 
 const navItems = [
     {name: "BLOG", link: "/"},
-    {name: "ABOUT", link: "/about"},
+    {name: "PROFILE", link: "/about"},
     {name: "LINKS", link: "/links"},
-    {name: "PROJECTS", link: "/projects"}
+    {name: "UPLOAD", link: "/projects"}
 ];
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const [user] = useContext(AuthContext)
+    const [user, setUser] = useContext(AuthContext)
     const handleLogout = () => {
-        localStorage.removeItem("isAuthenticated")
+        localStorage.removeItem("userInfo")
+        setUser({isAuthenticated: false})
         navigate("/login")
     }
     return (
-        <header className="w-full bg-white border-b border-gray-200 fixed top-0 left-0 z-30">
+        <header className="w-full bg-white border-b border-gray-200 ">
             <nav className="max-w-7xl mx-auto flex items-center justify-between px-8 py-7">
                 {/* Logo (text, not image, for style matching) */}
                 <NavLink to="/" className="select-none">

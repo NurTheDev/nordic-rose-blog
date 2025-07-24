@@ -1,7 +1,7 @@
 import React from "react";
 import banner from "../../assets/bannerImag.png";
 const BlogBanner = () => (
-    <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-white">
+    <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-white mt-10">
         {/* Background Image */}
         <img
             src={banner}

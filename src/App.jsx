@@ -11,11 +11,12 @@ const App = () => {
     const LoginForm = lazy(() => import('./AuthLayout/LoginForm.jsx'));
     const RegisterForm = lazy(() => import('./AuthLayout/RegisterForm.jsx'));
     const UploadBlog = lazy(() => import('./MainLayout/blogComponent/UploadBlog.jsx'));
-    const isAuthenticated = localStorage.getItem("isAuthenticated");
-    console.log(isAuthenticated)
-    const [user, setUser] = React.useState(isAuthenticated || false);
+    const [user, setUser] = React.useState(()=>{
+        const userInfo = localStorage.getItem("userInfo");
+        return userInfo ? JSON.parse(userInfo) : {isAuthenticated: false};
+    });
     return (
-        <AuthContext value={[user, setUser]}>
+        <AuthContext.Provider value={[user, setUser]}>
             <div>
                 <Suspense fallback={<Loader/>}>
                     <Routes>
@@ -33,7 +34,7 @@ const App = () => {
                     </Routes>
                 </Suspense>
             </div>
-        </AuthContext>
+        </AuthContext.Provider>
     );
 };
 

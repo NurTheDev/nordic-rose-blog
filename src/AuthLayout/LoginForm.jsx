@@ -11,9 +11,14 @@ export default function LoginForm() {
     const handleSubmit = (e) => {
         // Implement login logic here
         e.preventDefault();
-        axios.post("http://localhost:3000/user/login", {email, password}).then(() => {
-            localStorage.setItem("isAuthenticated", true)
+     const response =   axios.post("http://localhost:3000/user/login", {email, password}).then((value) => {
+         const data = {
+             userInfo: value.data,
+             isAuthenticated: true
+         }
+            localStorage.setItem("userInfo", JSON.stringify(data))
             setUser({isAuthenticated: true})
+         console.log(value)
         }).then(() => {
             navigate("/")
         }).catch((error) => {
