@@ -1,5 +1,5 @@
 import React from 'react';
-import {FaFacebook} from "react-icons/fa";
+import {FaFacebook, FaTrashAlt} from "react-icons/fa";
 import {FaSquareXTwitter} from "react-icons/fa6";
 
 const ProfileCard = ({
@@ -11,7 +11,8 @@ const ProfileCard = ({
                          onShareTwitter,
                      }) => {
     return (
-        <div className="flex justify-between items-center mt-10 mb-6 max-w-3xl mx-auto">
+        <div className="flex justify-between items-center mt-10 mb-6 max-w-3xl mx-auto relative">
+
             <div className="flex items-center">
                 <img
                     src={avatar}

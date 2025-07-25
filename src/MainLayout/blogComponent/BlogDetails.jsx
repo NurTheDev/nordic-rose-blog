@@ -4,16 +4,17 @@ import Facebook from "../../../public/icons/Facebook.jsx";
 import Twitter from "../../../public/icons/Twitter.jsx";
 import Subscribe from "../../component/Subscribe.jsx";
 
-const BlogDetails = () => {
+const BlogDetails = ({blog , authorAvatar = "https://randomuser.me/api/portraits/men/32.jpg"}) => {
     return (
         <div>
             <div className={"border-t border-gray-200 mt-20"}>
-                <ProfileCard/>
+                <ProfileCard avatar={authorAvatar} name={"Nur Islam"} date={new Date().toDateString()} readTime={blog.readTime}/>
             </div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu velit tempus erat egestas efficitur. In hac habitasse platea dictumst. Fusce a nunc eget ligula suscipit finibus. Aenean pharetra quis lacus at viverra.
-
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam quis posuere ligula. In eu dui molestie, molestie lectus eu, semper lectus.
+            <h1>{blog.title}</h1>
+            <div>
+                <img src={blog.thumbnail} alt=""/>
+            </div>
+            <p dangerouslySetInnerHTML={{ __html: blog.content }}>
             </p>
             <div className={"flex justify-center mt-10"}>
                 <button type="button"
